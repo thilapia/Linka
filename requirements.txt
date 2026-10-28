@@ -1,8 +1,0 @@
-flask
-requests
-flask_cors
-pyjwt
-dotenv
-supabase
-Mastodon.py
-atproto

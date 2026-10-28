@@ -2,6 +2,8 @@
 cross-plataform/build/
 cross-plataform/json/
 cross-plataform/third-party/
+apps/backend/DB/
+# Legacy local data; migrate explicitly
 backend/DB/
 build-*/
 build/
@@ -21,6 +23,13 @@ node_modules/
 __pycache__/
 *.pyc
 venv/
+.venv/
+.pytest_cache/
+.ruff_cache/
+dist/
+*.egg-info/
+apps/backend/*.pem
+automoderator.json
 # Qt Creator / user files
 *.pro.user
 *.user
@@ -31,13 +40,12 @@ venv/
 # Makefiles gerados
 Makefile
 Makefile.*
-SDKs/linkaBotsSdk/src/groq.py
 # CMake
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 compile_commands.json
-backend/5.15.2/
+apps/backend/5.15.2/
 # Android Qt build
 android-build/
 *.apk
@@ -54,3 +62,6 @@ android-build/
 *.exe
 *.keystore
 *.out
+
+# Local node configuration
+*.local.json

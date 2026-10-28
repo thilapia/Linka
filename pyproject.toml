@@ -1,0 +1,81 @@
+[project]
+name = "linka-workspace"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["linka-backend", "linka-counting-bot", "linkaFederations"]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+linka-backend = { workspace = true }
+linka-counting-bot = { workspace = true }
+linkaFederations = { workspace = true }
+
+[tool.uv.workspace]
+members = ["apps/backend", "packages/*"]
+
+[dependency-groups]
+dev = ["pytest>=8.3,<10", "ruff>=0.14,<1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = ["apps/linka_lite", "docs", "sites", "**/examples", "**/main_teste.py"]
+
+[tool.ruff.lint]
+select = ["E9", "F63", "F7", "F82"]
+
+# Preserve formatting in relocated legacy modules; new modules use Ruff formatting.
+[tool.ruff.format]
+exclude = [
+    "apps/backend/src/linka_backend/bluesky_federation/app.py",
+    "apps/backend/src/linka_backend/bluesky_federation/bluesky_bridge.py",
+    "apps/backend/src/linka_backend/bluesky_federation/create_post.py",
+    "apps/backend/src/linka_backend/bluesky_federation/posts.py",
+    "apps/backend/src/linka_backend/bookmarks.py",
+    "apps/backend/src/linka_backend/chat.py",
+    "apps/backend/src/linka_backend/chat_global.py",
+    "apps/backend/src/linka_backend/chat_group.py",
+    "apps/backend/src/linka_backend/community.py",
+    "apps/backend/src/linka_backend/content_store/store.py",
+    "apps/backend/src/linka_backend/federation_crypto.py",
+    "apps/backend/src/linka_backend/federation_index.py",
+    "apps/backend/src/linka_backend/federations.py",
+    "apps/backend/src/linka_backend/friends.py",
+    "apps/backend/src/linka_backend/images.py",
+    "apps/backend/src/linka_backend/invites.py",
+    "apps/backend/src/linka_backend/jobs.py",
+    "apps/backend/src/linka_backend/linkaFederations.py",
+    "apps/backend/src/linka_backend/linkaGate.py",
+    "apps/backend/src/linka_backend/linkosModule.py",
+    "apps/backend/src/linka_backend/login.py",
+    "apps/backend/src/linka_backend/main.py",
+    "apps/backend/src/linka_backend/main_teste.py",
+    "apps/backend/src/linka_backend/mastodon_federation/app.py",
+    "apps/backend/src/linka_backend/mastodon_federation/create_post.py",
+    "apps/backend/src/linka_backend/mastodon_federation/get_posts.py",
+    "apps/backend/src/linka_backend/mastodon_federation/posts.py",
+    "apps/backend/src/linka_backend/mentions.py",
+    "apps/backend/src/linka_backend/mentions_module.py",
+    "apps/backend/src/linka_backend/meta.py",
+    "apps/backend/src/linka_backend/migrate_urls.py",
+    "apps/backend/src/linka_backend/notifications.py",
+    "apps/backend/src/linka_backend/notificationsModule.py",
+    "apps/backend/src/linka_backend/post.py",
+    "apps/backend/src/linka_backend/profiles.py",
+    "apps/backend/src/linka_backend/reddit_federation/app.py",
+    "apps/backend/src/linka_backend/reddit_federation/posts.py",
+    "apps/backend/src/linka_backend/reports.py",
+    "apps/backend/src/linka_backend/search.py",
+    "apps/backend/src/linka_backend/sincronizer.py",
+    "apps/backend/src/linka_backend/slug.py",
+    "apps/backend/src/linka_backend/status.py",
+    "apps/backend/src/linka_backend/themeInterpreter.py",
+    "apps/backend/src/linka_backend/themes.py",
+    "packages/linka_federations/src/linka_federations/client.py",
+]

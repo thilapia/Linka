@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "linka-counting-bot"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["linkabot-sdk>=0.1.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/linka_counting_bot"]
+
+[project.scripts]
+linka-counting-bot = "linka_counting_bot.bot:main"
+
+[tool.uv.sources]
+linkabot-sdk = { workspace = true }

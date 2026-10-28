@@ -68,31 +68,24 @@ The project focuses on:
 
 ---
 
-# Installation
+# Development setup
 
-## Clone the repository
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then run:
 
-```bash
-git clone [https://github.com/luizgustavo76/Linka.git](https://github.com/luizgustavo76/Linka.git)
+```sh
+git clone https://github.com/luizgustavo76/Linka.git
 cd Linka
+uv sync --all-packages --frozen
+uv run linka-backend
 ```
 
----
+The API runs at `http://127.0.0.1:5000`; check `/meta` to confirm startup.
+Python 3.12 is selected automatically. SQLite state is created in `apps/backend/DB`.
+Optional configuration starts with `apps/backend/backend.env.example`.
 
-# Running the Backend Server
+Applications live under `apps/backend` and `apps/linka_lite`; Python SDKs and bots live under `packages` in a shared uv workspace. AutoModerator still starts automatically when configured. Android uses its own Gradle build.
 
-```bash
-cd backend
-
-# Install the required dependencies
-pip install flask python-dotenv werkzeug flask-cors
-
-# Create your configuration file
-echo "token_gmail=your_smtp_app_password_here" > .env
-
-# Start the server
-python main.py
-```
+See [CONTRIBUTING.md](CONTRIBUTING.md) for package boundaries, configuration, bot setup, local-state migration, Android development and checks.
 
 ---
 
