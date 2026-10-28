@@ -10,6 +10,8 @@ build/
 *config-login.json
 debug/
 # Diretórios de compilação
+/.idea/
+/*.iml
 build/
 build_linux/
 AppDir/
